@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bayesian Applications &#8212; Actuaries&#39; Analytical Cookbook</title>
+    <title>R: Bayesian Applications &#8212; Actuaries&#39; Analytical Cookbook</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -52,7 +52,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Decision Tree Applications" href="trees.html" />
+    <link rel="next" title="R: Decision Tree Applications" href="trees.html" />
     <link rel="prev" title="R: Life Industry Stats in Tableau and R" href="life_stats.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -211,12 +211,12 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Bayesian Applications
+   R: Bayesian Applications
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="trees.html">
-   Decision Tree Applications
+   R: Decision Tree Applications
   </a>
  </li>
 </ul>
@@ -471,7 +471,7 @@ const thebe_selector_output = ".output, .cell_output"
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
-   Bayesian Applications
+   R: Bayesian Applications
   </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
@@ -582,7 +582,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Bayesian Applications</h1>
+                <h1>R: Bayesian Applications</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -594,7 +594,7 @@ const thebe_selector_output = ".output, .cell_output"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
-   Bayesian Applications
+   R: Bayesian Applications
   </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
@@ -704,8 +704,8 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="bayesian-applications">
-<h1>Bayesian Applications<a class="headerlink" href="#bayesian-applications" title="Permalink to this headline">¶</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="r-bayesian-applications">
+<h1>R: Bayesian Applications<a class="headerlink" href="#r-bayesian-applications" title="Permalink to this headline">¶</a></h1>
 <p>By Pat Reen - originally published on his GitHub site <a class="reference external" href="https://pat-reen.github.io/More-Modelling-Recipes/">here</a>, which has the <a class="reference external" href="https://github.com/Pat-Reen/More-Modelling-Recipes">original code</a>.</p>
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="background">
@@ -735,6 +735,117 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="section" id="libraries">
 <h2>Libraries<a class="headerlink" href="#libraries" title="Permalink to this headline">¶</a></h2>
 <p>A list of packages used in the recipes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">base</span><span class="p">)</span>         <span class="c1"># Base r functions</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">fitdistrplus</span><span class="p">)</span> <span class="c1"># Fit of univariate distributions to non-censored data</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">lubridate</span><span class="p">)</span>    <span class="c1"># tidyverse: dealing with dates</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span>      <span class="c1"># tidyverse: graphs</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">gridExtra</span><span class="p">)</span>    <span class="c1"># tidyverse: arranging graphs</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">ggthemes</span><span class="p">)</span>     <span class="c1"># tidyverse: additional themes for ggplot, optional</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">dplyr</span><span class="p">)</span>        <span class="c1"># tidyverse: data manipulation</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">tidyr</span><span class="p">)</span>        <span class="c1"># tidyverse: tidy messy data</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">broom</span><span class="p">)</span>        <span class="c1"># tidyverse: visualising statistical objects</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">DataExplorer</span><span class="p">)</span> <span class="c1"># package for exploratory data analysis</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">scales</span><span class="p">)</span>       <span class="c1"># data formatting</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">stats</span><span class="p">)</span>        <span class="c1"># statistical functions</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">rstan</span><span class="p">)</span>        <span class="c1"># interface for stan platform</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">bayesplot</span><span class="p">)</span>    <span class="c1"># Plotting bayesian models (ggplot extension)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">rjags</span><span class="p">)</span>        <span class="c1"># alternative interface for stan platform, regression applications</span>
+
+<span class="c1"># library(EpiNow2)    # epidemiological model with stan backend; not called here as we&#39;ll use a pre-run model</span>
+<span class="c1"># library(rstanarm)   # interface for stan platform, regression applications; not called here</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading required package: MASS
+
+Loading required package: survival
+
+
+Attaching package: &#39;lubridate&#39;
+
+
+The following objects are masked from &#39;package:base&#39;:
+
+    date, intersect, setdiff, union
+
+
+
+Attaching package: &#39;dplyr&#39;
+
+
+The following object is masked from &#39;package:gridExtra&#39;:
+
+    combine
+
+
+The following object is masked from &#39;package:MASS&#39;:
+
+    select
+
+
+The following objects are masked from &#39;package:stats&#39;:
+
+    filter, lag
+
+
+The following objects are masked from &#39;package:base&#39;:
+
+    intersect, setdiff, setequal, union
+
+
+Loading required package: StanHeaders
+
+rstan (Version 2.21.2, GitRev: 2e1f913d3ca3)
+
+For execution on a local, multicore CPU with excess RAM we recommend calling
+options(mc.cores = parallel::detectCores()).
+To avoid recompilation of unchanged Stan programs, we recommend calling
+rstan_options(auto_write = TRUE)
+
+Do not specify &#39;-march=native&#39; in &#39;LOCAL_CPPFLAGS&#39; or a Makevars file
+
+
+Attaching package: &#39;rstan&#39;
+
+
+The following object is masked from &#39;package:tidyr&#39;:
+
+    extract
+
+
+This is bayesplot version 1.8.0
+
+- Online documentation and vignettes at mc-stan.org/bayesplot
+
+- bayesplot theme set to bayesplot::theme_default()
+
+   * Does _not_ affect other ggplot2 plots
+
+   * See ?bayesplot_theme_set for details on theme setting
+
+Warning message:
+&quot;package &#39;rjags&#39; was built under R version 4.0.5&quot;
+Loading required package: coda
+
+
+Attaching package: &#39;coda&#39;
+
+
+The following object is masked from &#39;package:rstan&#39;:
+
+    traceplot
+
+
+Linked to JAGS 4.2.0
+
+Loaded modules: basemod,bugs
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 <div class="section" id="mental-health-example">
 <h2>Mental health example<a class="headerlink" href="#mental-health-example" title="Permalink to this headline">¶</a></h2>
@@ -952,7 +1063,7 @@ const thebe_selector_output = ".output, .cell_output"
 </table>
 </div></div>
 </div>
-<p>[Data description](‘../_static/Framingham Longitudinal Data Documentation.pdf’) highlights:</p>
+<p>Data description (available at the NHLBI at the link above) highlights:</p>
 <ul class="simple">
 <li><p>RANDIND: unique identifier.</p></li>
 <li><p>SEX: 1=male; 2=female (categorical, 1/2).</p></li>
@@ -1090,33 +1201,33 @@ glm(formula = PREVCHD ~ ., family = &quot;binomial&quot;, data = df_heart_train)
 
 Deviance Residuals: 
     Min       1Q   Median       3Q      Max  
--1.1371  -0.4105  -0.2756  -0.1783   2.8715  
+-1.2663  -0.4245  -0.2920  -0.1914   2.9148  
 
 Coefficients:
-             Estimate Std. Error z value Pr(&gt;|z|)    
-(Intercept) -7.327533   1.272399  -5.759 8.47e-09 ***
-SEX         -1.174290   0.181350  -6.475 9.46e-11 ***
-TOTCHOL      0.003505   0.001743   2.011   0.0443 *  
-AGE          0.079417   0.011571   6.864 6.71e-12 ***
-SYSBP        0.010771   0.005027   2.143   0.0321 *  
-DIABP       -0.006257   0.009562  -0.654   0.5129    
-CURSMOKE    -0.066890   0.267342  -0.250   0.8024    
-CIGPDAY      0.003823   0.010371   0.369   0.7124    
-BMI          0.010779   0.020879   0.516   0.6057    
-DIABETES     0.689420   0.274347   2.513   0.0120 *  
-BPMEDS       0.450246   0.232713   1.935   0.0530 .  
-HEARTRTE    -0.006751   0.006442  -1.048   0.2946    
-educ        -0.033519   0.077981  -0.430   0.6673    
-PREVSTRK     0.462778   0.498220   0.929   0.3530    
-PREVHYP      0.218849   0.219767   0.996   0.3193    
+              Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept) -6.6866636  1.2016655  -5.564 2.63e-08 ***
+SEX         -1.1859982  0.1755469  -6.756 1.42e-11 ***
+TOTCHOL      0.0036993  0.0016923   2.186   0.0288 *  
+AGE          0.0741928  0.0110063   6.741 1.57e-11 ***
+SYSBP        0.0095145  0.0048687   1.954   0.0507 .  
+DIABP       -0.0149950  0.0093316  -1.607   0.1081    
+CURSMOKE     0.0739867  0.2533186   0.292   0.7702    
+CIGPDAY     -0.0006144  0.0098670  -0.062   0.9504    
+BMI          0.0312652  0.0196794   1.589   0.1121    
+DIABETES     0.6625034  0.2727767   2.429   0.0152 *  
+BPMEDS       0.4287359  0.2325453   1.844   0.0652 .  
+HEARTRTE    -0.0071800  0.0063029  -1.139   0.2546    
+educ         0.0060730  0.0759354   0.080   0.9363    
+PREVSTRK     0.1971987  0.5271302   0.374   0.7083    
+PREVHYP      0.3139145  0.2110413   1.487   0.1369    
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
 (Dispersion parameter for binomial family taken to be 1)
 
-    Null deviance: 1351.1  on 2678  degrees of freedom
-Residual deviance: 1177.7  on 2664  degrees of freedom
-AIC: 1207.7
+    Null deviance: 1417.6  on 2678  degrees of freedom
+Residual deviance: 1246.9  on 2664  degrees of freedom
+AIC: 1276.9
 
 Number of Fisher Scoring iterations: 6
 </pre></div>
@@ -1143,30 +1254,32 @@ Number of Fisher Scoring iterations: 6
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Call:
-glm(formula = PREVCHD ~ AGE + SEX + SYSBP + DIABETES + BPMEDS + 
-    TOTCHOL, family = &quot;binomial&quot;, data = df_heart_train)
+glm(formula = PREVCHD ~ AGE + SEX + SYSBP + DIABETES + TOTCHOL + 
+    BPMEDS + BMI + DIABP, family = &quot;binomial&quot;, data = df_heart_train)
 
 Deviance Residuals: 
     Min       1Q   Median       3Q      Max  
--1.1663  -0.4092  -0.2767  -0.1804   2.8492  
+-1.2532  -0.4223  -0.2941  -0.1937   2.8700  
 
 Coefficients:
              Estimate Std. Error z value Pr(&gt;|z|)    
-(Intercept) -8.217242   0.799672 -10.276  &lt; 2e-16 ***
-AGE          0.083181   0.010413   7.988 1.37e-15 ***
-SEX         -1.174758   0.174141  -6.746 1.52e-11 ***
-SYSBP        0.010782   0.003580   3.011  0.00260 ** 
-DIABETES     0.702185   0.270141   2.599  0.00934 ** 
-BPMEDS       0.501126   0.228104   2.197  0.02803 *  
-TOTCHOL      0.003399   0.001744   1.949  0.05128 .  
+(Intercept) -7.536469   0.990738  -7.607 2.81e-14 ***
+AGE          0.075523   0.010487   7.201 5.96e-13 ***
+SEX         -1.204200   0.170467  -7.064 1.62e-12 ***
+SYSBP        0.011729   0.004589   2.556   0.0106 *  
+DIABETES     0.648089   0.269713   2.403   0.0163 *  
+TOTCHOL      0.003613   0.001693   2.134   0.0328 *  
+BPMEDS       0.493445   0.229691   2.148   0.0317 *  
+BMI          0.033759   0.018973   1.779   0.0752 .  
+DIABP       -0.013674   0.009108  -1.501   0.1333    
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
 (Dispersion parameter for binomial family taken to be 1)
 
-    Null deviance: 1351.1  on 2678  degrees of freedom
-Residual deviance: 1181.6  on 2672  degrees of freedom
-AIC: 1195.6
+    Null deviance: 1417.6  on 2678  degrees of freedom
+Residual deviance: 1250.3  on 2670  degrees of freedom
+AIC: 1268.3
 
 Number of Fisher Scoring iterations: 6
 </pre></div>
@@ -1188,24 +1301,24 @@ glm(formula = PREVCHD ~ AGE + SEX + PREVHYP + DIABETES + TOTCHOL,
 
 Deviance Residuals: 
     Min       1Q   Median       3Q      Max  
--1.1822  -0.4204  -0.2799  -0.1844   2.9405  
+-1.1690  -0.4335  -0.2980  -0.1976   2.8909  
 
 Coefficients:
              Estimate Std. Error z value Pr(&gt;|z|)    
-(Intercept) -7.411998   0.735501 -10.077  &lt; 2e-16 ***
-AGE          0.087543   0.010203   8.580  &lt; 2e-16 ***
-SEX         -1.092521   0.170406  -6.411 1.44e-10 ***
-PREVHYP      0.528985   0.173512   3.049  0.00230 ** 
-DIABETES     0.769936   0.267135   2.882  0.00395 ** 
-TOTCHOL      0.003768   0.001728   2.180  0.02922 *  
+(Intercept) -6.963537   0.706508  -9.856  &lt; 2e-16 ***
+AGE          0.082324   0.009751   8.442  &lt; 2e-16 ***
+SEX         -1.104328   0.164167  -6.727 1.73e-11 ***
+PREVHYP      0.493143   0.165945   2.972  0.00296 ** 
+DIABETES     0.726565   0.267012   2.721  0.00651 ** 
+TOTCHOL      0.003757   0.001683   2.232  0.02564 *  
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
 (Dispersion parameter for binomial family taken to be 1)
 
-    Null deviance: 1351.1  on 2678  degrees of freedom
-Residual deviance: 1191.0  on 2673  degrees of freedom
-AIC: 1203
+    Null deviance: 1417.6  on 2678  degrees of freedom
+Residual deviance: 1259.8  on 2673  degrees of freedom
+AIC: 1271.8
 
 Number of Fisher Scoring iterations: 6
 </pre></div>
@@ -1254,12 +1367,12 @@ Number of Fisher Scoring iterations: 6
 <div class="output text_html"><table>
 <thead><tr><th></th><th scope=col>2.5 %</th><th scope=col>97.5 %</th></tr></thead>
 <tbody>
-	<tr><th scope=row>(Intercept)</th><td>-8.8776915163</td><td>-5.991585083 </td></tr>
-	<tr><th scope=row>AGE</th><td> 0.0678137734</td><td> 0.107852699 </td></tr>
-	<tr><th scope=row>SEX</th><td>-1.4311597984</td><td>-0.762253800 </td></tr>
-	<tr><th scope=row>PREVHYP</th><td> 0.1934226155</td><td> 0.874803105 </td></tr>
-	<tr><th scope=row>DIABETES</th><td> 0.2242889992</td><td> 1.275840724 </td></tr>
-	<tr><th scope=row>TOTCHOL</th><td> 0.0003353271</td><td> 0.007113462 </td></tr>
+	<tr><th scope=row>(Intercept)</th><td>-8.3688192547</td><td>-5.596808599 </td></tr>
+	<tr><th scope=row>AGE</th><td> 0.0634283440</td><td> 0.101690495 </td></tr>
+	<tr><th scope=row>SEX</th><td>-1.4305691739</td><td>-0.786197199 </td></tr>
+	<tr><th scope=row>PREVHYP</th><td> 0.1714022655</td><td> 0.822911226 </td></tr>
+	<tr><th scope=row>DIABETES</th><td> 0.1811029841</td><td> 1.232178161 </td></tr>
+	<tr><th scope=row>TOTCHOL</th><td> 0.0004136739</td><td> 0.007016859 </td></tr>
 </tbody>
 </table>
 </div></div>
@@ -1497,30 +1610,30 @@ glm(formula = Usage ~ ., family = gaussian(link = &quot;log&quot;), data = df_us
 
 Deviance Residuals: 
     Min       1Q   Median       3Q      Max  
--49.745   -4.158   -0.242    3.739   50.272  
+-48.462   -4.136   -0.055    4.097   50.017  
 
 Coefficients:
-                Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)     5.460269   0.192108  28.423  &lt; 2e-16 ***
-MaxTemp        -0.032919   0.008225  -4.002 7.19e-05 ***
-MinTemp        -0.094049   0.009027 -10.418  &lt; 2e-16 ***
-Rain_mm        -0.001062   0.001673  -0.635   0.5258    
-Solar_Exposure -0.016682   0.003693  -4.517 7.75e-06 ***
-SeasonAutumn    0.072891   0.083503   0.873   0.3831    
-SeasonWinter    0.053555   0.092984   0.576   0.5649    
-SeasonSpring    0.057520   0.083743   0.687   0.4925    
-Covid_Ind       0.018224   0.104769   0.174   0.8620    
-Weekend        -0.072596   0.031904  -2.275   0.0233 *  
+                 Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)     5.3857596  0.1976837  27.244  &lt; 2e-16 ***
+MaxTemp        -0.0266656  0.0085854  -3.106   0.0020 ** 
+MinTemp        -0.0966995  0.0092117 -10.497  &lt; 2e-16 ***
+Rain_mm        -0.0009299  0.0015925  -0.584   0.5595    
+Solar_Exposure -0.0160131  0.0037304  -4.293 2.11e-05 ***
+SeasonAutumn    0.0192829  0.0855239   0.225   0.8217    
+SeasonWinter    0.0308120  0.0955348   0.323   0.7472    
+SeasonSpring    0.0217416  0.0863133   0.252   0.8012    
+Covid_Ind       0.0112213  0.1053520   0.107   0.9152    
+Weekend        -0.0846583  0.0330808  -2.559   0.0108 *  
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
-(Dispersion parameter for gaussian family taken to be 82.98741)
+(Dispersion parameter for gaussian family taken to be 84.25409)
 
-    Null deviance: 118960  on 529  degrees of freedom
-Residual deviance:  43150  on 520  degrees of freedom
-AIC: 3857.8
+    Null deviance: 116497  on 529  degrees of freedom
+Residual deviance:  43811  on 520  degrees of freedom
+AIC: 3865.9
 
-Number of Fisher Scoring iterations: 8
+Number of Fisher Scoring iterations: 9
 </pre></div>
 </div>
 </div>
@@ -1550,23 +1663,23 @@ glm(formula = Usage ~ MinTemp + Solar_Exposure + MaxTemp + Weekend,
 
 Deviance Residuals: 
     Min       1Q   Median       3Q      Max  
--50.051   -4.108   -0.307    3.718   49.961  
+-48.542   -4.112   -0.072    4.134   49.949  
 
 Coefficients:
                 Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)     5.541441   0.093865  59.036  &lt; 2e-16 ***
-MinTemp        -0.096850   0.006950 -13.936  &lt; 2e-16 ***
-Solar_Exposure -0.016311   0.003179  -5.130 4.08e-07 ***
-MaxTemp        -0.031909   0.007923  -4.027 6.47e-05 ***
-Weekend        -0.072260   0.031761  -2.275   0.0233 *  
+(Intercept)     5.442979   0.095695  56.878  &lt; 2e-16 ***
+MinTemp        -0.099487   0.007055 -14.101  &lt; 2e-16 ***
+Solar_Exposure -0.015614   0.003244  -4.813 1.94e-06 ***
+MaxTemp        -0.026377   0.008172  -3.228  0.00133 ** 
+Weekend        -0.083631   0.032840  -2.547  0.01116 *  
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
-(Dispersion parameter for gaussian family taken to be 82.47664)
+(Dispersion parameter for gaussian family taken to be 83.54324)
 
-    Null deviance: 118960  on 529  degrees of freedom
-Residual deviance:  43300  on 525  degrees of freedom
-AIC: 3849.7
+    Null deviance: 116497  on 529  degrees of freedom
+Residual deviance:  43859  on 525  degrees of freedom
+AIC: 3856.5
 
 Number of Fisher Scoring iterations: 7
 </pre></div>
@@ -1588,24 +1701,24 @@ glm(formula = PREVCHD ~ AGE + SEX + PREVHYP + DIABETES + TOTCHOL,
 
 Deviance Residuals: 
     Min       1Q   Median       3Q      Max  
--1.1822  -0.4204  -0.2799  -0.1844   2.9405  
+-1.1690  -0.4335  -0.2980  -0.1976   2.8909  
 
 Coefficients:
              Estimate Std. Error z value Pr(&gt;|z|)    
-(Intercept) -7.411998   0.735501 -10.077  &lt; 2e-16 ***
-AGE          0.087543   0.010203   8.580  &lt; 2e-16 ***
-SEX         -1.092521   0.170406  -6.411 1.44e-10 ***
-PREVHYP      0.528985   0.173512   3.049  0.00230 ** 
-DIABETES     0.769936   0.267135   2.882  0.00395 ** 
-TOTCHOL      0.003768   0.001728   2.180  0.02922 *  
+(Intercept) -6.963537   0.706508  -9.856  &lt; 2e-16 ***
+AGE          0.082324   0.009751   8.442  &lt; 2e-16 ***
+SEX         -1.104328   0.164167  -6.727 1.73e-11 ***
+PREVHYP      0.493143   0.165945   2.972  0.00296 ** 
+DIABETES     0.726565   0.267012   2.721  0.00651 ** 
+TOTCHOL      0.003757   0.001683   2.232  0.02564 *  
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
 (Dispersion parameter for binomial family taken to be 1)
 
-    Null deviance: 1351.1  on 2678  degrees of freedom
-Residual deviance: 1191.0  on 2673  degrees of freedom
-AIC: 1203
+    Null deviance: 1417.6  on 2678  degrees of freedom
+Residual deviance: 1259.8  on 2673  degrees of freedom
+AIC: 1271.8
 
 Number of Fisher Scoring iterations: 6
 </pre></div>
@@ -1627,23 +1740,23 @@ glm(formula = Usage ~ MaxTemp + MinTemp, family = gaussian(link = &quot;log&quot
 
 Deviance Residuals: 
     Min       1Q   Median       3Q      Max  
--53.947   -4.391   -0.352    4.545   48.356  
+-52.104   -4.356   -0.383    4.303   48.369  
 
 Coefficients:
              Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)  5.513462   0.096916  56.889  &lt; 2e-16 ***
-MaxTemp     -0.044602   0.007798  -5.719 1.79e-08 ***
-MinTemp     -0.094021   0.007223 -13.017  &lt; 2e-16 ***
+(Intercept)  5.421554   0.098463  55.062  &lt; 2e-16 ***
+MaxTemp     -0.038852   0.007936  -4.895 1.31e-06 ***
+MinTemp     -0.096961   0.007295 -13.291  &lt; 2e-16 ***
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
-(Dispersion parameter for gaussian family taken to be 87.48176)
+(Dispersion parameter for gaussian family taken to be 88.06658)
 
-    Null deviance: 118960  on 529  degrees of freedom
-Residual deviance:  46103  on 527  degrees of freedom
-AIC: 3878.9
+    Null deviance: 116497  on 529  degrees of freedom
+Residual deviance:  46410  on 527  degrees of freedom
+AIC: 3882.4
 
-Number of Fisher Scoring iterations: 7
+Number of Fisher Scoring iterations: 6
 </pre></div>
 </div>
 </div>
@@ -1660,9 +1773,9 @@ Number of Fisher Scoring iterations: 7
 <div class="output text_html"><table>
 <thead><tr><th></th><th scope=col>coef(final_model_glm)</th></tr></thead>
 <tbody>
-	<tr><th scope=row>(Intercept)</th><td> 5.51346230</td></tr>
-	<tr><th scope=row>MaxTemp</th><td>-0.04460180</td></tr>
-	<tr><th scope=row>MinTemp</th><td>-0.09402111</td></tr>
+	<tr><th scope=row>(Intercept)</th><td> 5.42155441</td></tr>
+	<tr><th scope=row>MaxTemp</th><td>-0.03885196</td></tr>
+	<tr><th scope=row>MinTemp</th><td>-0.09696149</td></tr>
 </tbody>
 </table>
 </div></div>
@@ -1683,7 +1796,7 @@ Number of Fisher Scoring iterations: 7
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;Dummy prediction with min of 10 and max of 20:&quot;
 </pre></div>
 </div>
-<div class="output text_html"><strong>1:</strong> 39.6945994715043</div><div class="output text_html">39.6945994715043</div></div>
+<div class="output text_html"><strong>1:</strong> 39.4447215468635</div><div class="output text_html">39.4447215468635</div></div>
 </div>
 <p>Adding the predictions to the test data:</p>
 <div class="cell docutils container">
@@ -1808,7 +1921,7 @@ Number of Fisher Scoring iterations: 7
 Graph information:
    Observed stochastic nodes: 530
    Unobserved stochastic nodes: 4
-   Total graph size: 3453
+   Total graph size: 3443
 
 Initializing model
 </pre></div>
@@ -1840,18 +1953,18 @@ Sample size per chain = 10000
    plus standard error of the mean:
 
       Mean       SD  Naive SE Time-series SE
-a  5.50682 0.102565 5.922e-04      0.0069582
-b -0.04378 0.008185 4.725e-05      0.0008413
-c -0.09479 0.007359 4.249e-05      0.0004640
-s  9.35938 0.272236 1.572e-03      0.0020288
+a  5.43062 0.106682 6.159e-04      0.0071807
+b -0.03996 0.008763 5.059e-05      0.0008959
+c -0.09614 0.007787 4.496e-05      0.0004871
+s  9.39294 0.272178 1.571e-03      0.0020356
 
 2. Quantiles for each variable:
 
-      2.5%      25%      50%      75%    97.5%
-a  5.31089  5.43652  5.50651  5.57561  5.71490
-b -0.05971 -0.04915 -0.04370 -0.03826 -0.02738
-c -0.10969 -0.09963 -0.09476 -0.08983 -0.08033
-s  8.82937  9.17011  9.35979  9.55176  9.88566
+      2.5%     25%      50%      75%    97.5%
+a  5.22563  5.3599  5.43002  5.49981  5.64801
+b -0.05739 -0.0459 -0.03964 -0.03394 -0.02338
+c -0.11141 -0.1014 -0.09636 -0.09093 -0.08056
+s  8.85518  9.2055  9.39511  9.58763  9.90515
 </pre></div>
 </div>
 <img alt="../_images/bayesian-applications_101_1.png" src="../_images/bayesian-applications_101_1.png" />
@@ -2168,7 +2281,7 @@ Merging forecast reported cases with the actual case data:</p>
     <a class='right-next' id="next-link" href="trees.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Decision Tree Applications</p>
+        <p class="prev-next-title">R: Decision Tree Applications</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
