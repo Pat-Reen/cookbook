@@ -1201,33 +1201,33 @@ glm(formula = PREVCHD ~ ., family = &quot;binomial&quot;, data = df_heart_train)
 
 Deviance Residuals: 
     Min       1Q   Median       3Q      Max  
--1.2663  -0.4245  -0.2920  -0.1914   2.9148  
+-1.2005  -0.3942  -0.2689  -0.1764   2.8267  
 
 Coefficients:
-              Estimate Std. Error z value Pr(&gt;|z|)    
-(Intercept) -6.6866636  1.2016655  -5.564 2.63e-08 ***
-SEX         -1.1859982  0.1755469  -6.756 1.42e-11 ***
-TOTCHOL      0.0036993  0.0016923   2.186   0.0288 *  
-AGE          0.0741928  0.0110063   6.741 1.57e-11 ***
-SYSBP        0.0095145  0.0048687   1.954   0.0507 .  
-DIABP       -0.0149950  0.0093316  -1.607   0.1081    
-CURSMOKE     0.0739867  0.2533186   0.292   0.7702    
-CIGPDAY     -0.0006144  0.0098670  -0.062   0.9504    
-BMI          0.0312652  0.0196794   1.589   0.1121    
-DIABETES     0.6625034  0.2727767   2.429   0.0152 *  
-BPMEDS       0.4287359  0.2325453   1.844   0.0652 .  
-HEARTRTE    -0.0071800  0.0063029  -1.139   0.2546    
-educ         0.0060730  0.0759354   0.080   0.9363    
-PREVSTRK     0.1971987  0.5271302   0.374   0.7083    
-PREVHYP      0.3139145  0.2110413   1.487   0.1369    
+             Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept) -7.113776   1.261852  -5.638 1.72e-08 ***
+SEX         -1.115977   0.184808  -6.039 1.55e-09 ***
+TOTCHOL      0.003499   0.001800   1.944  0.05193 .  
+AGE          0.082100   0.011805   6.955 3.53e-12 ***
+SYSBP        0.010360   0.005095   2.034  0.04200 *  
+DIABP       -0.010298   0.009769  -1.054  0.29183    
+CURSMOKE     0.232126   0.262849   0.883  0.37717    
+CIGPDAY     -0.002498   0.010638  -0.235  0.81433    
+BMI          0.032094   0.019760   1.624  0.10435    
+DIABETES     0.914603   0.285975   3.198  0.00138 ** 
+BPMEDS       0.570168   0.231573   2.462  0.01381 *  
+HEARTRTE    -0.016406   0.006802  -2.412  0.01587 *  
+educ        -0.018918   0.079389  -0.238  0.81166    
+PREVSTRK    -0.006285   0.519340  -0.012  0.99034    
+PREVHYP      0.156544   0.221431   0.707  0.47959    
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
 (Dispersion parameter for binomial family taken to be 1)
 
-    Null deviance: 1417.6  on 2678  degrees of freedom
-Residual deviance: 1246.9  on 2664  degrees of freedom
-AIC: 1276.9
+    Null deviance: 1330.2  on 2678  degrees of freedom
+Residual deviance: 1153.8  on 2664  degrees of freedom
+AIC: 1183.8
 
 Number of Fisher Scoring iterations: 6
 </pre></div>
@@ -1254,32 +1254,32 @@ Number of Fisher Scoring iterations: 6
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Call:
-glm(formula = PREVCHD ~ AGE + SEX + SYSBP + DIABETES + TOTCHOL + 
-    BPMEDS + BMI + DIABP, family = &quot;binomial&quot;, data = df_heart_train)
+glm(formula = PREVCHD ~ AGE + SEX + SYSBP + DIABETES + BPMEDS + 
+    HEARTRTE + TOTCHOL + BMI, family = &quot;binomial&quot;, data = df_heart_train)
 
 Deviance Residuals: 
     Min       1Q   Median       3Q      Max  
--1.2532  -0.4223  -0.2941  -0.1937   2.8700  
+-1.1608  -0.3969  -0.2686  -0.1794   2.7927  
 
 Coefficients:
              Estimate Std. Error z value Pr(&gt;|z|)    
-(Intercept) -7.536469   0.990738  -7.607 2.81e-14 ***
-AGE          0.075523   0.010487   7.201 5.96e-13 ***
-SEX         -1.204200   0.170467  -7.064 1.62e-12 ***
-SYSBP        0.011729   0.004589   2.556   0.0106 *  
-DIABETES     0.648089   0.269713   2.403   0.0163 *  
-TOTCHOL      0.003613   0.001693   2.134   0.0328 *  
-BPMEDS       0.493445   0.229691   2.148   0.0317 *  
-BMI          0.033759   0.018973   1.779   0.0752 .  
-DIABP       -0.013674   0.009108  -1.501   0.1333    
+(Intercept) -7.661824   1.020658  -7.507 6.06e-14 ***
+AGE          0.084334   0.010730   7.860 3.85e-15 ***
+SEX         -1.103991   0.178346  -6.190 6.01e-10 ***
+SYSBP        0.008409   0.003648   2.305 0.021142 *  
+DIABETES     0.955417   0.283054   3.375 0.000737 ***
+BPMEDS       0.565431   0.226000   2.502 0.012353 *  
+HEARTRTE    -0.015934   0.006643  -2.399 0.016456 *  
+TOTCHOL      0.003512   0.001798   1.953 0.050827 .  
+BMI          0.027836   0.019010   1.464 0.143125    
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
 (Dispersion parameter for binomial family taken to be 1)
 
-    Null deviance: 1417.6  on 2678  degrees of freedom
-Residual deviance: 1250.3  on 2670  degrees of freedom
-AIC: 1268.3
+    Null deviance: 1330.2  on 2678  degrees of freedom
+Residual deviance: 1156.5  on 2670  degrees of freedom
+AIC: 1174.5
 
 Number of Fisher Scoring iterations: 6
 </pre></div>
@@ -1301,24 +1301,24 @@ glm(formula = PREVCHD ~ AGE + SEX + PREVHYP + DIABETES + TOTCHOL,
 
 Deviance Residuals: 
     Min       1Q   Median       3Q      Max  
--1.1690  -0.4335  -0.2980  -0.1976   2.8909  
+-1.1799  -0.4108  -0.2765  -0.1855   2.8273  
 
 Coefficients:
              Estimate Std. Error z value Pr(&gt;|z|)    
-(Intercept) -6.963537   0.706508  -9.856  &lt; 2e-16 ***
-AGE          0.082324   0.009751   8.442  &lt; 2e-16 ***
-SEX         -1.104328   0.164167  -6.727 1.73e-11 ***
-PREVHYP      0.493143   0.165945   2.972  0.00296 ** 
-DIABETES     0.726565   0.267012   2.721  0.00651 ** 
-TOTCHOL      0.003757   0.001683   2.232  0.02564 *  
+(Intercept) -7.545344   0.747879 -10.089  &lt; 2e-16 ***
+AGE          0.089204   0.010456   8.531  &lt; 2e-16 ***
+SEX         -1.021647   0.172018  -5.939 2.86e-09 ***
+PREVHYP      0.429504   0.172534   2.489 0.012796 *  
+DIABETES     0.955708   0.277043   3.450 0.000561 ***
+TOTCHOL      0.003587   0.001786   2.008 0.044622 *  
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
 (Dispersion parameter for binomial family taken to be 1)
 
-    Null deviance: 1417.6  on 2678  degrees of freedom
-Residual deviance: 1259.8  on 2673  degrees of freedom
-AIC: 1271.8
+    Null deviance: 1330.2  on 2678  degrees of freedom
+Residual deviance: 1175.1  on 2673  degrees of freedom
+AIC: 1187.1
 
 Number of Fisher Scoring iterations: 6
 </pre></div>
@@ -1367,12 +1367,12 @@ Number of Fisher Scoring iterations: 6
 <div class="output text_html"><table>
 <thead><tr><th></th><th scope=col>2.5 %</th><th scope=col>97.5 %</th></tr></thead>
 <tbody>
-	<tr><th scope=row>(Intercept)</th><td>-8.3688192547</td><td>-5.596808599 </td></tr>
-	<tr><th scope=row>AGE</th><td> 0.0634283440</td><td> 0.101690495 </td></tr>
-	<tr><th scope=row>SEX</th><td>-1.4305691739</td><td>-0.786197199 </td></tr>
-	<tr><th scope=row>PREVHYP</th><td> 0.1714022655</td><td> 0.822911226 </td></tr>
-	<tr><th scope=row>DIABETES</th><td> 0.1811029841</td><td> 1.232178161 </td></tr>
-	<tr><th scope=row>TOTCHOL</th><td> 0.0004136739</td><td> 0.007016859 </td></tr>
+	<tr><th scope=row>(Intercept)</th><td>-9.036547e+00</td><td>-6.101885309 </td></tr>
+	<tr><th scope=row>AGE</th><td> 6.899351e-02</td><td> 0.110025938 </td></tr>
+	<tr><th scope=row>SEX</th><td>-1.363608e+00</td><td>-0.688341685 </td></tr>
+	<tr><th scope=row>PREVHYP</th><td> 9.505739e-02</td><td> 0.772545383 </td></tr>
+	<tr><th scope=row>DIABETES</th><td> 3.904704e-01</td><td> 1.481294798 </td></tr>
+	<tr><th scope=row>TOTCHOL</th><td> 5.736614e-05</td><td> 0.007065571 </td></tr>
 </tbody>
 </table>
 </div></div>
@@ -1610,30 +1610,30 @@ glm(formula = Usage ~ ., family = gaussian(link = &quot;log&quot;), data = df_us
 
 Deviance Residuals: 
     Min       1Q   Median       3Q      Max  
--48.462   -4.136   -0.055    4.097   50.017  
+-47.319   -4.224    0.046    4.322   37.930  
 
 Coefficients:
-                 Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)     5.3857596  0.1976837  27.244  &lt; 2e-16 ***
-MaxTemp        -0.0266656  0.0085854  -3.106   0.0020 ** 
-MinTemp        -0.0966995  0.0092117 -10.497  &lt; 2e-16 ***
-Rain_mm        -0.0009299  0.0015925  -0.584   0.5595    
-Solar_Exposure -0.0160131  0.0037304  -4.293 2.11e-05 ***
-SeasonAutumn    0.0192829  0.0855239   0.225   0.8217    
-SeasonWinter    0.0308120  0.0955348   0.323   0.7472    
-SeasonSpring    0.0217416  0.0863133   0.252   0.8012    
-Covid_Ind       0.0112213  0.1053520   0.107   0.9152    
-Weekend        -0.0846583  0.0330808  -2.559   0.0108 *  
+                Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)     5.387678   0.199813  26.964  &lt; 2e-16 ***
+MaxTemp        -0.030283   0.008456  -3.581 0.000374 ***
+MinTemp        -0.090411   0.009018 -10.026  &lt; 2e-16 ***
+Rain_mm        -0.001216   0.001633  -0.745 0.456782    
+Solar_Exposure -0.018039   0.003579  -5.040 6.44e-07 ***
+SeasonAutumn    0.080907   0.081470   0.993 0.321128    
+SeasonWinter    0.058841   0.092785   0.634 0.526252    
+SeasonSpring    0.047820   0.082687   0.578 0.563289    
+Covid_Ind      -0.010380   0.102208  -0.102 0.919147    
+Weekend        -0.081506   0.032791  -2.486 0.013245 *  
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
-(Dispersion parameter for gaussian family taken to be 84.25409)
+(Dispersion parameter for gaussian family taken to be 78.90366)
 
-    Null deviance: 116497  on 529  degrees of freedom
-Residual deviance:  43811  on 520  degrees of freedom
-AIC: 3865.9
+    Null deviance: 107385  on 529  degrees of freedom
+Residual deviance:  41028  on 520  degrees of freedom
+AIC: 3831.1
 
-Number of Fisher Scoring iterations: 9
+Number of Fisher Scoring iterations: 8
 </pre></div>
 </div>
 </div>
@@ -1663,23 +1663,23 @@ glm(formula = Usage ~ MinTemp + Solar_Exposure + MaxTemp + Weekend,
 
 Deviance Residuals: 
     Min       1Q   Median       3Q      Max  
--48.542   -4.112   -0.072    4.134   49.949  
+-47.315   -4.180    0.146    4.304   37.669  
 
 Coefficients:
                 Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)     5.442979   0.095695  56.878  &lt; 2e-16 ***
-MinTemp        -0.099487   0.007055 -14.101  &lt; 2e-16 ***
-Solar_Exposure -0.015614   0.003244  -4.813 1.94e-06 ***
-MaxTemp        -0.026377   0.008172  -3.228  0.00133 ** 
-Weekend        -0.083631   0.032840  -2.547  0.01116 *  
+(Intercept)     5.437922   0.101427  53.614  &lt; 2e-16 ***
+MinTemp        -0.093693   0.006809 -13.759  &lt; 2e-16 ***
+Solar_Exposure -0.018206   0.003117  -5.840 9.13e-09 ***
+MaxTemp        -0.028285   0.008205  -3.447 0.000612 ***
+Weekend        -0.081305   0.032688  -2.487 0.013180 *  
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
-(Dispersion parameter for gaussian family taken to be 83.54324)
+(Dispersion parameter for gaussian family taken to be 78.45279)
 
-    Null deviance: 116497  on 529  degrees of freedom
-Residual deviance:  43859  on 525  degrees of freedom
-AIC: 3856.5
+    Null deviance: 107385  on 529  degrees of freedom
+Residual deviance:  41187  on 525  degrees of freedom
+AIC: 3823.2
 
 Number of Fisher Scoring iterations: 7
 </pre></div>
@@ -1701,24 +1701,24 @@ glm(formula = PREVCHD ~ AGE + SEX + PREVHYP + DIABETES + TOTCHOL,
 
 Deviance Residuals: 
     Min       1Q   Median       3Q      Max  
--1.1690  -0.4335  -0.2980  -0.1976   2.8909  
+-1.1799  -0.4108  -0.2765  -0.1855   2.8273  
 
 Coefficients:
              Estimate Std. Error z value Pr(&gt;|z|)    
-(Intercept) -6.963537   0.706508  -9.856  &lt; 2e-16 ***
-AGE          0.082324   0.009751   8.442  &lt; 2e-16 ***
-SEX         -1.104328   0.164167  -6.727 1.73e-11 ***
-PREVHYP      0.493143   0.165945   2.972  0.00296 ** 
-DIABETES     0.726565   0.267012   2.721  0.00651 ** 
-TOTCHOL      0.003757   0.001683   2.232  0.02564 *  
+(Intercept) -7.545344   0.747879 -10.089  &lt; 2e-16 ***
+AGE          0.089204   0.010456   8.531  &lt; 2e-16 ***
+SEX         -1.021647   0.172018  -5.939 2.86e-09 ***
+PREVHYP      0.429504   0.172534   2.489 0.012796 *  
+DIABETES     0.955708   0.277043   3.450 0.000561 ***
+TOTCHOL      0.003587   0.001786   2.008 0.044622 *  
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
 (Dispersion parameter for binomial family taken to be 1)
 
-    Null deviance: 1417.6  on 2678  degrees of freedom
-Residual deviance: 1259.8  on 2673  degrees of freedom
-AIC: 1271.8
+    Null deviance: 1330.2  on 2678  degrees of freedom
+Residual deviance: 1175.1  on 2673  degrees of freedom
+AIC: 1187.1
 
 Number of Fisher Scoring iterations: 6
 </pre></div>
@@ -1740,23 +1740,23 @@ glm(formula = Usage ~ MaxTemp + MinTemp, family = gaussian(link = &quot;log&quot
 
 Deviance Residuals: 
     Min       1Q   Median       3Q      Max  
--52.104   -4.356   -0.383    4.303   48.369  
+-51.414   -4.133   -0.399    4.833   35.870  
 
 Coefficients:
              Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)  5.421554   0.098463  55.062  &lt; 2e-16 ***
-MaxTemp     -0.038852   0.007936  -4.895 1.31e-06 ***
-MinTemp     -0.096961   0.007295 -13.291  &lt; 2e-16 ***
+(Intercept)  5.400159   0.104609  51.622  &lt; 2e-16 ***
+MaxTemp     -0.041852   0.008101  -5.166  3.4e-07 ***
+MinTemp     -0.090886   0.007094 -12.812  &lt; 2e-16 ***
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
-(Dispersion parameter for gaussian family taken to be 88.06658)
+(Dispersion parameter for gaussian family taken to be 84.34791)
 
-    Null deviance: 116497  on 529  degrees of freedom
-Residual deviance:  46410  on 527  degrees of freedom
-AIC: 3882.4
+    Null deviance: 107385  on 529  degrees of freedom
+Residual deviance:  44451  on 527  degrees of freedom
+AIC: 3859.6
 
-Number of Fisher Scoring iterations: 6
+Number of Fisher Scoring iterations: 7
 </pre></div>
 </div>
 </div>
@@ -1773,9 +1773,9 @@ Number of Fisher Scoring iterations: 6
 <div class="output text_html"><table>
 <thead><tr><th></th><th scope=col>coef(final_model_glm)</th></tr></thead>
 <tbody>
-	<tr><th scope=row>(Intercept)</th><td> 5.42155441</td></tr>
-	<tr><th scope=row>MaxTemp</th><td>-0.03885196</td></tr>
-	<tr><th scope=row>MinTemp</th><td>-0.09696149</td></tr>
+	<tr><th scope=row>(Intercept)</th><td> 5.40015931</td></tr>
+	<tr><th scope=row>MaxTemp</th><td>-0.04185155</td></tr>
+	<tr><th scope=row>MinTemp</th><td>-0.09088563</td></tr>
 </tbody>
 </table>
 </div></div>
@@ -1796,7 +1796,7 @@ Number of Fisher Scoring iterations: 6
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;Dummy prediction with min of 10 and max of 20:&quot;
 </pre></div>
 </div>
-<div class="output text_html"><strong>1:</strong> 39.4447215468635</div><div class="output text_html">39.4447215468635</div></div>
+<div class="output text_html"><strong>1:</strong> 38.6393804134837</div><div class="output text_html">38.6393804134837</div></div>
 </div>
 <p>Adding the predictions to the test data:</p>
 <div class="cell docutils container">
@@ -1921,7 +1921,7 @@ Number of Fisher Scoring iterations: 6
 Graph information:
    Observed stochastic nodes: 530
    Unobserved stochastic nodes: 4
-   Total graph size: 3443
+   Total graph size: 3441
 
 Initializing model
 </pre></div>
@@ -1953,18 +1953,18 @@ Sample size per chain = 10000
    plus standard error of the mean:
 
       Mean       SD  Naive SE Time-series SE
-a  5.43062 0.106682 6.159e-04      0.0071807
-b -0.03996 0.008763 5.059e-05      0.0008959
-c -0.09614 0.007787 4.496e-05      0.0004871
-s  9.39294 0.272178 1.571e-03      0.0020356
+a  5.38977 0.109373 6.315e-04      0.0075333
+b -0.04118 0.008326 4.807e-05      0.0008016
+c -0.09115 0.007111 4.106e-05      0.0004205
+s  9.20473 0.281097 1.623e-03      0.0020582
 
 2. Quantiles for each variable:
 
-      2.5%     25%      50%      75%    97.5%
-a  5.22563  5.3599  5.43002  5.49981  5.64801
-b -0.05739 -0.0459 -0.03964 -0.03394 -0.02338
-c -0.11141 -0.1014 -0.09636 -0.09093 -0.08056
-s  8.85518  9.2055  9.39511  9.58763  9.90515
+      2.5%      25%      50%      75%    97.5%
+a  5.17360  5.31577  5.38943  5.46270  5.60700
+b -0.05779 -0.04668 -0.04105 -0.03553 -0.02569
+c -0.10497 -0.09592 -0.09108 -0.08652 -0.07698
+s  8.66798  9.00892  9.19923  9.39549  9.77699
 </pre></div>
 </div>
 <img alt="../_images/bayesian-applications_101_1.png" src="../_images/bayesian-applications_101_1.png" />
