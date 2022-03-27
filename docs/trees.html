@@ -883,48 +883,44 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Gini impurity is a common approach to calculate the goodness of split in a numeric way, which helps decide where to split the dataset.</p>
 <p>Gini impurity is a measurement of the likelihood of an incorrect classification of the sample randomly selected. The lower the Gini impurity, the less likely a mis-classification will occur, and the subgroup is “purer”. It reaches 0 when the dataset contains only one class (“purest” scenario).</p>
 <p>Gini impurity is denoted as
-$<span class="math notranslate nohighlight">\(G(x) = \sum_{i=1}^n P(x_i)(1 - P(x_i)) = 1 - \sum^n_{i=1} P(x_i)^2\)</span><span class="math notranslate nohighlight">\(
-where \)</span>p_k$ is the probability of a correct classification within the subgroup.</p>
+<span class="math notranslate nohighlight">\(G(x) = \sum_{i=1}^n P(x_i)(1 - P(x_i)) = 1 - \sum^n_{i=1} P(x_i)^2\)</span>
+where <span class="math notranslate nohighlight">\(p_k\)</span> is the probability of a correct classification within the subgroup.</p>
 <p><img alt="Gini Impurity calculation" src="../_images/gini_impurity.png" /></p>
 <p>In the example of whether having chest pain in relation to heart disease, the Gini impurity can be calculated as follows:</p>
-<div class="math notranslate nohighlight">
-\[P_1 = P\text{(Has heart disease with chest pain)} = \frac{105}{105 + 39} = 0.7862\]</div>
-<div class="math notranslate nohighlight">
-\[P_2 = P\text{(No heart disease with chest pain)} = \frac{39}{105 + 39} = 0.2708\]</div>
-<div class="math notranslate nohighlight">
-\[P_3 = P\text{(Has heart disease without chest pain)} = \frac{34}{34 + 125} = 0.2138\]</div>
-<div class="math notranslate nohighlight">
-\[P_4 = P\text{(No heart disease without chest pain)} = \frac{125}{34 + 125} = 0.7292\]</div>
-<p>The Gini impurity for the left group is
-$<span class="math notranslate nohighlight">\( G(Left) = 1 - P_1^2 - P_2^2 = 0.3950\)</span><span class="math notranslate nohighlight">\(
-The Gini impurity for the right group is
-\)</span><span class="math notranslate nohighlight">\( G(Right) = 1 - P_3^2 - P_4^2 = 0.3362\)</span><span class="math notranslate nohighlight">\(
-The overall Gini impurity for the division is a weighted average of the Gini impurity of the two groups, based on the number of observations within each group.
-\)</span><span class="math notranslate nohighlight">\( G = \frac{144}{144 + 159} \times G(Left) + \frac{159}{144 + 159} \times G(Right) = 0.364\)</span>$</p>
+<p><span class="math notranslate nohighlight">\(P_1 = P\text{(Has heart disease with chest pain)} = \frac{105}{105 + 39} = 0.7862\)</span>
+<span class="math notranslate nohighlight">\(P_2 = P\text{(No heart disease with chest pain)} = \frac{39}{105 + 39} = 0.2708\)</span>
+<span class="math notranslate nohighlight">\(P_3 = P\text{(Has heart disease without chest pain)} = \frac{34}{34 + 125} = 0.2138\)</span>
+<span class="math notranslate nohighlight">\(P_4 = P\text{(No heart disease without chest pain)} = \frac{125}{34 + 125} = 0.7292\)</span>
+The Gini impurity for the left group is
+<span class="math notranslate nohighlight">\( G(Left) = 1 - P_1^2 - P_2^2 = 0.3950\)</span></p>
+<p>The Gini impurity for the right group is
+<span class="math notranslate nohighlight">\( G(Right) = 1 - P_3^2 - P_4^2 = 0.3362\)</span></p>
+<p>The overall Gini impurity for the division is a weighted average of the Gini impurity of the two groups, based on the number of observations within each group.</p>
+<p><span class="math notranslate nohighlight">\( G = \frac{144}{144 + 159} \times G(Left) + \frac{159}{144 + 159} \times G(Right) = 0.364\)</span></p>
 <p>Similarly, the Gini impurity for whether having good blood circulation as condition is 0.360. In this case, it is a slightly better indicator than whether having chest pain.</p>
 </div>
 <div class="section" id="entropy">
 <h3>Entropy<a class="headerlink" href="#entropy" title="Permalink to this headline">¶</a></h3>
 <p>Entropy is a concept in information theory introduced by Claude Shannon in his 1948 paper “A Methematical Theory of Communication”. It is denoted as follows
-$<span class="math notranslate nohighlight">\( H(x) =  - \sum_{i=1}^n P(x_i)ln(P(x_i))\)</span>$</p>
+<span class="math notranslate nohighlight">\( H(x) =  - \sum_{i=1}^n P(x_i)ln(P(x_i))\)</span></p>
 <p>Entropy varies between <span class="math notranslate nohighlight">\([0, 1]\)</span> while Gini impurity varies <span class="math notranslate nohighlight">\([0,0.5]\)</span>. The two have very similar distribution especially when Entropy is compared to twice of the Gini impurity. The conclusion from the two are mostly the same (only disagree in 2% of time). In many cases Gini impurity is favoured, as Entropy requires more computational power for using log function.</p>
 </div>
 <div class="section" id="information-gain">
 <h3>Information gain<a class="headerlink" href="#information-gain" title="Permalink to this headline">¶</a></h3>
 <p>After we get (information) entropy, we can calculate the information gain for a particular feature when learning.</p>
-<p>Suppose one of the features is gender. If we choose to split dataset by gender, then can be sub-divided into 2 groups, <span class="math notranslate nohighlight">\(D_{male}\)</span> and <span class="math notranslate nohighlight">\(D_{female}\)</span>. So the entropy after splitting by gender, is the weighted average of the entropy of the two sets
-$<span class="math notranslate nohighlight">\( \frac{D_{male}}{D}H(D_{male}) + \frac{D_{female}}{D}H(D_{female})\)</span><span class="math notranslate nohighlight">\(
-When compared to the information entropy prior to the split, the reduction is the information gain, denoted as
-\)</span><span class="math notranslate nohighlight">\( Gain(D, feature)=H(D)-\sum^{N}_{i=1}\frac{D_i}{D}H(D_i)  \)</span>$
-The information gain is then used to determine whether it’s better or worse off to perform a further split, and which feature yields higher gain.</p>
+<p>Suppose one of the features is gender. If we choose to split dataset by gender, then can be sub-divided into 2 groups, <span class="math notranslate nohighlight">\(D_{male}\)</span> and <span class="math notranslate nohighlight">\(D_{female}\)</span>. So the entropy after splitting by gender, is the weighted average of the entropy of the two sets</p>
+<p><span class="math notranslate nohighlight">\( \frac{D_{male}}{D}H(D_{male}) + \frac{D_{female}}{D}H(D_{female}) \)</span></p>
+<p>When compared to the information entropy prior to the split, the reduction is the information gain, denoted as</p>
+<p><span class="math notranslate nohighlight">\( Gain(D, feature)=H(D)-\sum^{N}_{i=1}\frac{D_i}{D}H(D_i) \)</span></p>
+<p>The information gain is then used to determine whether it’s better or worse off to perform a further split, and which feature yields higher gain.</p>
 </div>
 <div class="section" id="information-gain-ratio">
 <h3>Information gain ratio<a class="headerlink" href="#information-gain-ratio" title="Permalink to this headline">¶</a></h3>
 <p>One potential issue with information gain is that it prefers features with more categories. For instance, if we choose to split by personal ID which is a unique value, the entire dataset will be divided into <span class="math notranslate nohighlight">\(N\)</span> groups where <span class="math notranslate nohighlight">\(N\)</span> is also the number of data points. In this case, the entropy of each group will be zero given there is only 1 observation and the accuracy of classification reaches 100%, which then makes the second term (average entropy after split) of above formula zero. Apparently such division is not meaningful even though it maximises the information gain.</p>
-<p>To improve this, the information gain ratio was developed. It is written as
-$<span class="math notranslate nohighlight">\( Gain\_ratio(D, feature)=\frac{Gain(D, feature)}{IV(feature)}\)</span><span class="math notranslate nohighlight">\(
-where \)</span>IV(feature)<span class="math notranslate nohighlight">\( can be further denoted as
-\)</span><span class="math notranslate nohighlight">\( IV(feature)=-\sum_{i=1}^N \frac{D_i}{D}ln(\frac{D_i}{D})\)</span>$</p>
+<p>To improve this, the information gain ratio was developed. It is written as</p>
+<p><span class="math notranslate nohighlight">\( Gain\_ratio(D, feature)=\frac{Gain(D, feature)}{IV(feature)}\)</span>
+where <span class="math notranslate nohighlight">\(IV(feature)\)</span> can be further denoted as</p>
+<p><span class="math notranslate nohighlight">\( IV(feature)=-\sum_{i=1}^N \frac{D_i}{D}ln(\frac{D_i}{D})\)</span></p>
 <p>This looks similar to information entropy, which essentially evaluates the purity of the feature. If the feature only has few categories, it’s “purer” and the <span class="math notranslate nohighlight">\(IV\)</span> values is smaller, vice versa. Therefore it adds a penalty on selecting features with many categories.</p>
 <p>However, information gain ratio is still not perfect, as it tends to choose features with less categories. Therefore, C4.5, a typical algorithm that uses information gain ratio, also uses information gain. It first calculates the average of information gain of all possible splits, and then choose the split with information gain above this average but also has the maximum information gain ratio, as the best split.</p>
 </div>
@@ -957,8 +953,8 @@ where \)</span>IV(feature)<span class="math notranslate nohighlight">\( can be f
 <div class="section" id="mean-square-error-mse">
 <h3>Mean square error (MSE)<a class="headerlink" href="#mean-square-error-mse" title="Permalink to this headline">¶</a></h3>
 <p>Mean square error is defined as
-$<span class="math notranslate nohighlight">\( MSE = \frac{1}{n} \sum_{i=1}^n (y_i - \hat{y}_i)^2 \)</span><span class="math notranslate nohighlight">\(
-where \)</span>y_i<span class="math notranslate nohighlight">\( is the actual value and \)</span>\hat{y}_i$ is the predicted value. This is the same approach used in linear regression, which aims to minimise the difference between the actual and predicted values.</p>
+<span class="math notranslate nohighlight">\( MSE = \frac{1}{n} \sum_{i=1}^n (y_i - \hat{y}_i)^2 \)</span>
+where <span class="math notranslate nohighlight">\(y_i\)</span> is the actual value and <span class="math notranslate nohighlight">\(\hat{y}_i\)</span> is the predicted value. This is the same approach used in linear regression, which aims to minimise the difference between the actual and predicted values.</p>
 <p>Note that regression tree uses piecewise linear functions, which fits a linear function to a certain interval. if we keep dividing the dataset, the tree is able to depict any kind of non-linear trends asymptotically. This is more flexible than simple linear regression.</p>
 </div>
 </div>
@@ -1051,8 +1047,8 @@ n= 2453
 <p>With replacement, each data point has a chance of <span class="math notranslate nohighlight">\(\frac{1}{n}\)</span> to be selected, and after <span class="math notranslate nohighlight">\(n\)</span> selections, the probability that a data point is not selected, is <span class="math notranslate nohighlight">\((1 - \frac{1}{n})^n\)</span>. When <span class="math notranslate nohighlight">\(n \to \infty\)</span>, this converges to <span class="math notranslate nohighlight">\(\frac{1}{e} \approx 0.368\)</span>. This means around 36.8% data will not be selected into the new sample, which are called “Out of Bag” (OOB) data.</p>
 <p>The earlier random decision forests by Tin Kam Ho used the “random subspace method”, where each tree got a random subset of features. However, a few years later, Leo Breiman described the procedure of selecting different subsets of features for each node (while a tree was given the full set of features). Leo Breiman’s formulation has become the “trademark” random forest algorithm that we typically refer to these days when we speak of “random forest”.</p>
 <p>With the randomness in sampling of data points and features, random forest can control over-fitting well. Meanwhile, as random forest uses multiple decision trees, it also helps reduce the variance. If we treat each tree as a <span class="math notranslate nohighlight">\(iid\)</span> random variable <span class="math notranslate nohighlight">\(X_i\)</span> with variance <span class="math notranslate nohighlight">\(\sigma^2\)</span>, variance of their mean is
-$<span class="math notranslate nohighlight">\( Var(\frac{1}{n} \sum X_i) = \frac{\sigma^2}{n}\)</span><span class="math notranslate nohighlight">\(
-where \)</span>n$ denotes the number of trees.</p>
+<span class="math notranslate nohighlight">\( Var(\frac{1}{n} \sum X_i) = \frac{\sigma^2}{n}\)</span>
+where <span class="math notranslate nohighlight">\(n\)</span> denotes the number of trees.</p>
 </div>
 <div class="section" id="train-random-forest-model">
 <h2>Train random forest model<a class="headerlink" href="#train-random-forest-model" title="Permalink to this headline">¶</a></h2>
@@ -1207,9 +1203,9 @@ Area under the curve: 0.6683
 </ul>
 <p><img alt="Intuition behind gradient boosting (source: https://explained.ai/gradient-boosting/index.html)" src="../_images/golf-gbdt.png" /></p>
 <p>Just like playing golf, GBDT model tries to explain the residual of the previous fitting. Actually, the algorithm uses negative gradient to approximate the residual. For each sample point, the loss function is in the form of
-$<span class="math notranslate nohighlight">\( l(y_i, \hat{y}_i) = \frac{1}{2}(y_i - \hat{y}_i)^2\)</span><span class="math notranslate nohighlight">\(
-Note that this is just same as mean square error, the \)</span>\frac{1}{2}<span class="math notranslate nohighlight">\( at the front is just to offset the coefficient 2 that will emerge when calculating derivative, without changing the overall trend. Thus, the negative gradient is
-\)</span><span class="math notranslate nohighlight">\( -\frac{\partial l}{\partial \hat{y}_i} = (y_i - \hat{y}_i)\)</span>$
+<span class="math notranslate nohighlight">\( l(y_i, \hat{y}_i) = \frac{1}{2}(y_i - \hat{y}_i)^2\)</span>
+Note that this is just same as mean square error, the <span class="math notranslate nohighlight">\(\frac{1}{2}\)</span> at the front is just to offset the coefficient 2 that will emerge when calculating derivative, without changing the overall trend. Thus, the negative gradient is
+<span class="math notranslate nohighlight">\( -\frac{\partial l}{\partial \hat{y}_i} = (y_i - \hat{y}_i)\)</span>
 which is exactly the variance between the actual and predicted value.</p>
 </div>
 <div class="section" id="pros-and-cons-of-gbdt">
