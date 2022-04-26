@@ -37,9 +37,12 @@
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
@@ -701,7 +704,8 @@ productivity by cutting down on bugs and syntax errors.</p>
 </div>
 <div class="section" id="bibliography">
 <h2>Bibliography<a class="headerlink" href="#bibliography" title="Permalink to this headline">¶</a></h2>
-<p id="id3"><dl class="citation">
+<div class="docutils container" id="id3">
+<dl class="citation">
 <dt class="label" id="id4"><span class="brackets"><a class="fn-backref" href="#id1">Gut16</a></span></dt>
 <dd><p>John Guttag. <em>Introduction to computation and programming using Python: With application to understanding data</em>. MIT Press, 2016.</p>
 </dd>
@@ -709,7 +713,7 @@ productivity by cutting down on bugs and syntax errors.</p>
 <dd><p>Christian Hill. <em>Learning scientific programming with python</em>. Cambridge University Press, 2016.</p>
 </dd>
 </dl>
-</p>
+</div>
 </div>
 </div>
 
