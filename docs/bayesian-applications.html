@@ -738,7 +738,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p>The evidence term is proportional to the likelihood and therefore the theorem is often stated as</p>
 <p><span class="math notranslate nohighlight">\(\Huge p(\theta | x) \propto p(x | \theta) p(\theta)\)</span></p>
-<p>A paper presented at the 2021 Actuaries (Institute) Summit {cite} ‘Latent’ (p2) sets out the ‘tensions’ that exist between Frequentest and Bayesian approaches and suggests that:</p>
+<p>A paper presented at the <a class="reference external" href="https://actuaries.logicaldoc.cloud/download-ticket?ticketId=4fda7653-5e3d-4514-a79f-ed0070a0f9be">2021 Actuaries (Institute) Summit</a> (p2) sets out the ‘tensions’ that exist between Frequentest and Bayesian approaches and suggests that:</p>
 <blockquote>
 <div><p>“Despite actuaries being pioneers in early work on credibility theory, Bayesian approaches have largely given way to frequentist approaches. This is to our loss, since such methods have advanced substantially over the past couple of decades and they are well-suited to problems with latent variables or noise around underlying ‘true’ values.”</p>
 </div></blockquote>
@@ -864,7 +864,7 @@ Loaded modules: basemod,bugs
 </div>
 <div class="section" id="mental-health-example">
 <h2>Mental health example<a class="headerlink" href="#mental-health-example" title="Permalink to this headline">¶</a></h2>
-<p>The 2017 Actuaries Institute Green Paper on Mental Health and Insurance {cite} ‘Greenpaper’ talks about some of the challenges in obtaining reliable data and projections on mental health in insurance [{cite} ‘GreenPaper’, p26]:</p>
+<p>The <a class="reference external" href="https://www.actuaries.asn.au/Library/Miscellaneous/2017/GPMENTALHEALTHWEBRCopy.pdf">2017 Actuaries Institute Green Paper on Mental Health and Insurance</a> talks about some of the challenges in obtaining reliable data and projections on mental health in insurance (p26):</p>
 <blockquote>
 <div><p>“There are sources of data and research about the prevalence and profile of people with different mental health conditions, such as the 2007 National Survey of Mental Health and Wellbeing and many other epidemiological and clinical studies… [T]o have a complete and informed view of all this information is a difficult task for a full-time academic, let alone for an insurer.</p>
 <p>Even then, the nature and granularity of the data needed for insurance applications is different from that for population, public health or clinical purposes. Firstly, the ‘exposure’ (the number of insured people and their characteristics) needs to be recorded. There is probably a lot of relevant information that is not collected at the start of an insurance policy and can therefore never be analysed.</p>
@@ -879,7 +879,7 @@ Loaded modules: basemod,bugs
 <li><p>impact of co-morbidities</p></li>
 <li><p>correlation with financial incentive</p></li>
 </ul>
-<p>Based upon data from a single insurer ~19% of IP and TPD claims relate to mental health, with mental health claims contributing 26% to the total cost of claims (in 2015, {cite} ‘GreenPaper’, p17). This is roughly consistent with the proportion of the general population that experiences an episode of mental illness in a 12 month period, {cite} ‘ProdComm’, p110.</p>
+<p>Based upon data from a single insurer ~19% of IP and TPD claims relate to mental health, with mental health claims contributing 26% to the total cost of claims (in 2015, p17). This is roughly consistent with the proportion of the general population that experiences an episode of mental illness in a 12 month period, from the <a class="reference external" href="https://www.pc.gov.au/inquiries/completed/mental-health/report/mental-health-volume2.pdf">Productivity Commission</a>, p110.</p>
 <p>In this simple example, we want to know what the rate of mental illness, <span class="math notranslate nohighlight">\(\theta\)</span> is in the insured population. Assume some true underlying <span class="math notranslate nohighlight">\(\theta\)</span>, here a fixed value of 20%.  Create a population, <span class="math notranslate nohighlight">\(X\)</span> with <span class="math notranslate nohighlight">\(X \sim B(N,\theta)\)</span> where N=100000. Pull a random sample from population.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1042,7 +1042,7 @@ Loaded modules: basemod,bugs
 <p>The error term, <span class="math notranslate nohighlight">\(\epsilon\)</span> is assumed to be normally distributed and the regression co-efficients are estimated by minimising the error term commonly using ordinary least squares (OLS). We make some other assumptions about the error term - not correlated with X and i.i.d.; and define <span class="math notranslate nohighlight">\(Var(\epsilon)=\sigma^2\)</span>. The generalised form allows the response variable to have an error that is not normal - this is achieved by allowing the linear model to be related to the response variable via a link function and by allowing the magnitude of the variance of each measurement to be a function of its predicted value.</p>
 <p>With Bayesian inference we are interested in the posterior <em>distributions</em> of the parameters <span class="math notranslate nohighlight">\(\beta\)</span> and <span class="math notranslate nohighlight">\(\sigma\)</span>, rather than point estimates. We also want to influence those distributions with some prior knowledge of their behaviour:</p>
 <p><span class="math notranslate nohighlight">\(p(\beta,\sigma|y,X) \propto p(y|\beta,\sigma)p(\beta,\sigma)\)</span></p>
-<p><span class="math notranslate nohighlight">\(p(\beta,\sigma|y,X)\)</span> is not a normalised probability density function (i.e. is proportional to the likelihood and prior). However, we can sample from it and therefore estimate any quantity of interest e.g. mean or variance, [{cite} ‘Recipes’, p825]. For this we use MCMC, {cite} ‘Recipes’, p825:</p>
+<p><span class="math notranslate nohighlight">\(p(\beta,\sigma|y,X)\)</span> is not a normalised probability density function (i.e. is proportional to the likelihood and prior). However, we can sample from it and therefore estimate any quantity of interest e.g. mean or variance, <a class="reference external" href="https://www.amazon.com.au/Numerical-Recipes-3rd-Scientific-Computing/dp/0521880688">Numerical Recipes, p825</a>. For this we use MCMC:</p>
 <blockquote>
 <div><p>“MCMC is a random sampling method… the goal is to visit a point <span class="math notranslate nohighlight">\(x\)</span> with a probability proportional to some given distribution function <span class="math notranslate nohighlight">\(\pi(x)\)</span> [not necessarily a probability]. Why would we want to sample a distribution in this way? THe answer is that Bayesian methods, often implemented using MCMC, provide a powerful way of estimating the parameters of a model and their degree of uncertainty.”</p>
 </div></blockquote>
@@ -1216,33 +1216,33 @@ glm(formula = PREVCHD ~ ., family = &quot;binomial&quot;, data = df_heart_train)
 
 Deviance Residuals: 
     Min       1Q   Median       3Q      Max  
--1.0713  -0.4160  -0.2878  -0.1898   2.9428  
+-1.3274  -0.4061  -0.2666  -0.1721   3.0678  
 
 Coefficients:
              Estimate Std. Error z value Pr(&gt;|z|)    
-(Intercept) -6.378421   1.206714  -5.286 1.25e-07 ***
-SEX         -1.112475   0.176345  -6.309 2.82e-10 ***
-TOTCHOL      0.002441   0.001732   1.410   0.1586    
-AGE          0.076208   0.011046   6.899 5.23e-12 ***
-SYSBP        0.010633   0.005135   2.071   0.0384 *  
-DIABP       -0.013218   0.009703  -1.362   0.1731    
-CURSMOKE     0.191457   0.248610   0.770   0.4412    
-CIGPDAY     -0.001491   0.009803  -0.152   0.8791    
-BMI          0.030981   0.019697   1.573   0.1158    
-DIABETES     0.468098   0.303554   1.542   0.1231    
-BPMEDS       0.506828   0.229014   2.213   0.0269 *  
-HEARTRTE    -0.015144   0.006491  -2.333   0.0196 *  
-educ         0.020009   0.075511   0.265   0.7910    
-PREVSTRK    -0.166022   0.570892  -0.291   0.7712    
-PREVHYP      0.316389   0.213651   1.481   0.1386    
+(Intercept) -7.771752   1.252690  -6.204 5.50e-10 ***
+SEX         -1.163457   0.179755  -6.472 9.64e-11 ***
+TOTCHOL      0.002251   0.001766   1.274  0.20250    
+AGE          0.086854   0.011635   7.465 8.34e-14 ***
+SYSBP        0.010511   0.005092   2.064  0.03900 *  
+DIABP       -0.014227   0.009529  -1.493  0.13544    
+CURSMOKE     0.340968   0.255911   1.332  0.18274    
+CIGPDAY     -0.006939   0.010363  -0.670  0.50315    
+BMI          0.053302   0.020091   2.653  0.00798 ** 
+DIABETES     0.392274   0.291334   1.346  0.17815    
+BPMEDS       0.531433   0.222946   2.384  0.01714 *  
+HEARTRTE    -0.013636   0.006523  -2.090  0.03659 *  
+educ         0.099809   0.076119   1.311  0.18978    
+PREVSTRK     0.218284   0.490566   0.445  0.65635    
+PREVHYP      0.374206   0.221446   1.690  0.09106 .  
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
 (Dispersion parameter for binomial family taken to be 1)
 
-    Null deviance: 1407.5  on 2678  degrees of freedom
-Residual deviance: 1235.4  on 2664  degrees of freedom
-AIC: 1265.4
+    Null deviance: 1366.6  on 2678  degrees of freedom
+Residual deviance: 1174.0  on 2664  degrees of freedom
+AIC: 1204
 
 Number of Fisher Scoring iterations: 6
 </pre></div>
@@ -1269,30 +1269,32 @@ Number of Fisher Scoring iterations: 6
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Call:
-glm(formula = PREVCHD ~ AGE + SEX + SYSBP + BPMEDS + HEARTRTE + 
-    DIABETES, family = &quot;binomial&quot;, data = df_heart_train)
+glm(formula = PREVCHD ~ AGE + SEX + SYSBP + BPMEDS + BMI + HEARTRTE + 
+    PREVHYP + DIABP, family = &quot;binomial&quot;, data = df_heart_train)
 
 Deviance Residuals: 
     Min       1Q   Median       3Q      Max  
--1.0576  -0.4137  -0.2892  -0.1958   2.9325  
+-1.2381  -0.4063  -0.2700  -0.1729   3.0992  
 
 Coefficients:
              Estimate Std. Error z value Pr(&gt;|z|)    
-(Intercept) -6.023733   0.801689  -7.514 5.74e-14 ***
-AGE          0.078610   0.010024   7.842 4.44e-15 ***
-SEX         -1.060110   0.165506  -6.405 1.50e-10 ***
-SYSBP        0.010578   0.003616   2.925  0.00344 ** 
-BPMEDS       0.507438   0.224451   2.261  0.02377 *  
-HEARTRTE    -0.014762   0.006352  -2.324  0.02013 *  
-DIABETES     0.550639   0.298581   1.844  0.06516 .  
+(Intercept) -6.776549   1.106023  -6.127 8.96e-10 ***
+AGE          0.084172   0.011073   7.601 2.93e-14 ***
+SEX         -1.134134   0.170509  -6.651 2.90e-11 ***
+SYSBP        0.011127   0.005026   2.214   0.0268 *  
+BPMEDS       0.538117   0.218937   2.458   0.0140 *  
+BMI          0.047248   0.019361   2.440   0.0147 *  
+HEARTRTE    -0.012867   0.006413  -2.006   0.0448 *  
+PREVHYP      0.367789   0.220910   1.665   0.0959 .  
+DIABP       -0.014075   0.009425  -1.493   0.1353    
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
 (Dispersion parameter for binomial family taken to be 1)
 
-    Null deviance: 1407.5  on 2678  degrees of freedom
-Residual deviance: 1243.5  on 2672  degrees of freedom
-AIC: 1257.5
+    Null deviance: 1366.6  on 2678  degrees of freedom
+Residual deviance: 1181.3  on 2670  degrees of freedom
+AIC: 1199.3
 
 Number of Fisher Scoring iterations: 6
 </pre></div>
@@ -1314,24 +1316,24 @@ glm(formula = PREVCHD ~ AGE + SEX + PREVHYP + DIABETES + TOTCHOL,
 
 Deviance Residuals: 
     Min       1Q   Median       3Q      Max  
--1.1075  -0.4272  -0.2939  -0.1994   2.9224  
+-1.1702  -0.4182  -0.2772  -0.1830   3.0145  
 
 Coefficients:
              Estimate Std. Error z value Pr(&gt;|z|)    
-(Intercept) -6.812303   0.717676  -9.492  &lt; 2e-16 ***
-AGE          0.083066   0.009766   8.505  &lt; 2e-16 ***
-SEX         -1.044651   0.164405  -6.354  2.1e-10 ***
-PREVHYP      0.518399   0.167163   3.101  0.00193 ** 
-DIABETES     0.529475   0.295804   1.790  0.07346 .  
-TOTCHOL      0.002529   0.001720   1.470  0.14158    
+(Intercept) -7.371509   0.734203 -10.040  &lt; 2e-16 ***
+AGE          0.091994   0.010190   9.028  &lt; 2e-16 ***
+SEX         -1.084013   0.168352  -6.439  1.2e-10 ***
+PREVHYP      0.622003   0.176473   3.525 0.000424 ***
+DIABETES     0.543020   0.282690   1.921 0.054744 .  
+TOTCHOL      0.002377   0.001755   1.354 0.175643    
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
 (Dispersion parameter for binomial family taken to be 1)
 
-    Null deviance: 1407.5  on 2678  degrees of freedom
-Residual deviance: 1253.7  on 2673  degrees of freedom
-AIC: 1265.7
+    Null deviance: 1366.6  on 2678  degrees of freedom
+Residual deviance: 1198.5  on 2673  degrees of freedom
+AIC: 1210.5
 
 Number of Fisher Scoring iterations: 6
 </pre></div>
@@ -1380,12 +1382,12 @@ Number of Fisher Scoring iterations: 6
 <div class="output text_html"><table>
 <thead><tr><th></th><th scope=col>2.5 %</th><th scope=col>97.5 %</th></tr></thead>
 <tbody>
-	<tr><th scope=row>(Intercept)</th><td>-8.2396331584</td><td>-5.423938863 </td></tr>
-	<tr><th scope=row>AGE</th><td> 0.0641578827</td><td> 0.102478223 </td></tr>
-	<tr><th scope=row>SEX</th><td>-1.3715996781</td><td>-0.726242064 </td></tr>
-	<tr><th scope=row>PREVHYP</th><td> 0.1945515182</td><td> 0.850879367 </td></tr>
-	<tr><th scope=row>DIABETES</th><td>-0.0819664870</td><td> 1.084234023 </td></tr>
-	<tr><th scope=row>TOTCHOL</th><td>-0.0008841215</td><td> 0.005858012 </td></tr>
+	<tr><th scope=row>(Intercept)</th><td>-8.83403551</td><td>-5.95320077</td></tr>
+	<tr><th scope=row>AGE</th><td> 0.07229529</td><td> 0.11228084</td></tr>
+	<tr><th scope=row>SEX</th><td>-1.41856263</td><td>-0.75773533</td></tr>
+	<tr><th scope=row>PREVHYP</th><td> 0.28161591</td><td> 0.97470859</td></tr>
+	<tr><th scope=row>DIABETES</th><td>-0.03837607</td><td> 1.07525870</td></tr>
+	<tr><th scope=row>TOTCHOL</th><td>-0.00110349</td><td> 0.00577671</td></tr>
 </tbody>
 </table>
 </div></div>
@@ -1417,7 +1419,7 @@ Number of Fisher Scoring iterations: 6
 </div>
 <div class="section" id="model-fit">
 <h3>Model fit<a class="headerlink" href="#model-fit" title="Permalink to this headline">¶</a></h3>
-<p>We are able to extract predictions from each iteration of the posterior sampling. We can extract predictions for new data. Could be tested against the observations for goodness of fit. The follwing from the manual, {cite} ‘rstanarm’, p43:</p>
+<p>We are able to extract predictions from each iteration of the posterior sampling. We can extract predictions for new data. Could be tested against the observations for goodness of fit. The follwing from the <a class="reference external" href="https://cran.r-project.org/web/packages/rstanarm/rstanarm.pdf">rstanarm manual, p43</a>:</p>
 <blockquote>
 <div><p>“The posterior predictive distribution (posterior_predict) is the distribution of the outcome implied by the model after using the observed data to update our beliefs about the unknown parameters in the model. Simulating data from the posterior predictive distribution using the observed predictors is useful for checking the fit of the model. Drawing from the posterior predictive distribution at interesting values of the predictors also lets us visualize how a manipulation of a predictor affects (a function of)the outcome(s). With new observations of predictor variables we can use the posterior predictive distribution to generate predicted outcomes.”</p>
 </div></blockquote>
@@ -1623,30 +1625,30 @@ glm(formula = Usage ~ ., family = gaussian(link = &quot;log&quot;), data = df_us
 
 Deviance Residuals: 
     Min       1Q   Median       3Q      Max  
--50.899   -4.006   -0.076    3.733   49.415  
+-46.096   -4.220    0.013    4.539   50.118  
 
 Coefficients:
                  Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)     5.6214229  0.1982708  28.352  &lt; 2e-16 ***
-MaxTemp        -0.0425392  0.0084429  -5.038 6.49e-07 ***
-MinTemp        -0.0884785  0.0089313  -9.907  &lt; 2e-16 ***
-Rain_mm        -0.0001143  0.0013452  -0.085 0.932345    
-Solar_Exposure -0.0133247  0.0036561  -3.645 0.000295 ***
-SeasonAutumn    0.0774679  0.0799959   0.968 0.333296    
-SeasonWinter    0.0416854  0.0900563   0.463 0.643643    
-SeasonSpring    0.0044548  0.0799528   0.056 0.955588    
-Covid_Ind      -0.0701204  0.1010073  -0.694 0.487859    
-Weekend        -0.0560166  0.0316978  -1.767 0.077780 .  
+(Intercept)     5.398e+00  2.017e-01  26.766  &lt; 2e-16 ***
+MaxTemp        -2.440e-02  8.537e-03  -2.858  0.00444 ** 
+MinTemp        -9.728e-02  9.487e-03 -10.254  &lt; 2e-16 ***
+Rain_mm        -2.596e-06  1.343e-03  -0.002  0.99846    
+Solar_Exposure -1.989e-02  3.765e-03  -5.283 1.87e-07 ***
+SeasonAutumn    7.897e-02  8.573e-02   0.921  0.35740    
+SeasonWinter    4.277e-02  9.590e-02   0.446  0.65579    
+SeasonSpring    8.101e-02  8.540e-02   0.949  0.34326    
+Covid_Ind      -2.651e-02  1.103e-01  -0.240  0.81007    
+Weekend        -4.936e-02  3.338e-02  -1.479  0.13983    
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
-(Dispersion parameter for gaussian family taken to be 82.26755)
+(Dispersion parameter for gaussian family taken to be 86.41346)
 
-    Null deviance: 116582  on 529  degrees of freedom
-Residual deviance:  42778  on 520  degrees of freedom
-AIC: 3853.3
+    Null deviance: 118331  on 529  degrees of freedom
+Residual deviance:  44933  on 520  degrees of freedom
+AIC: 3879.3
 
-Number of Fisher Scoring iterations: 9
+Number of Fisher Scoring iterations: 8
 </pre></div>
 </div>
 </div>
@@ -1676,23 +1678,23 @@ glm(formula = Usage ~ MinTemp + Solar_Exposure + MaxTemp + Weekend,
 
 Deviance Residuals: 
     Min       1Q   Median       3Q      Max  
--50.271   -3.943   -0.184    4.274   49.771  
+-46.465   -4.196    0.078    4.629   49.779  
 
 Coefficients:
                 Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)     5.579315   0.096841  57.613  &lt; 2e-16 ***
-MinTemp        -0.091111   0.006712 -13.574  &lt; 2e-16 ***
-Solar_Exposure -0.015223   0.003136  -4.853 1.60e-06 ***
-MaxTemp        -0.038786   0.008013  -4.840 1.71e-06 ***
-Weekend        -0.056046   0.031564  -1.776   0.0764 .  
+(Intercept)     5.396219   0.096133  56.133  &lt; 2e-16 ***
+MinTemp        -0.095761   0.007011 -13.659  &lt; 2e-16 ***
+Solar_Exposure -0.019246   0.003249  -5.923 5.73e-09 ***
+MaxTemp        -0.024253   0.008169  -2.969  0.00313 ** 
+Weekend        -0.049882   0.033198  -1.503  0.13355    
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
-(Dispersion parameter for gaussian family taken to be 81.96876)
+(Dispersion parameter for gaussian family taken to be 85.9083)
 
-    Null deviance: 116582  on 529  degrees of freedom
-Residual deviance:  43032  on 525  degrees of freedom
-AIC: 3846.4
+    Null deviance: 118331  on 529  degrees of freedom
+Residual deviance:  45101  on 525  degrees of freedom
+AIC: 3871.3
 
 Number of Fisher Scoring iterations: 7
 </pre></div>
@@ -1714,24 +1716,24 @@ glm(formula = PREVCHD ~ AGE + SEX + PREVHYP + DIABETES + TOTCHOL,
 
 Deviance Residuals: 
     Min       1Q   Median       3Q      Max  
--1.1075  -0.4272  -0.2939  -0.1994   2.9224  
+-1.1702  -0.4182  -0.2772  -0.1830   3.0145  
 
 Coefficients:
              Estimate Std. Error z value Pr(&gt;|z|)    
-(Intercept) -6.812303   0.717676  -9.492  &lt; 2e-16 ***
-AGE          0.083066   0.009766   8.505  &lt; 2e-16 ***
-SEX         -1.044651   0.164405  -6.354  2.1e-10 ***
-PREVHYP      0.518399   0.167163   3.101  0.00193 ** 
-DIABETES     0.529475   0.295804   1.790  0.07346 .  
-TOTCHOL      0.002529   0.001720   1.470  0.14158    
+(Intercept) -7.371509   0.734203 -10.040  &lt; 2e-16 ***
+AGE          0.091994   0.010190   9.028  &lt; 2e-16 ***
+SEX         -1.084013   0.168352  -6.439  1.2e-10 ***
+PREVHYP      0.622003   0.176473   3.525 0.000424 ***
+DIABETES     0.543020   0.282690   1.921 0.054744 .  
+TOTCHOL      0.002377   0.001755   1.354 0.175643    
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
 (Dispersion parameter for binomial family taken to be 1)
 
-    Null deviance: 1407.5  on 2678  degrees of freedom
-Residual deviance: 1253.7  on 2673  degrees of freedom
-AIC: 1265.7
+    Null deviance: 1366.6  on 2678  degrees of freedom
+Residual deviance: 1198.5  on 2673  degrees of freedom
+AIC: 1210.5
 
 Number of Fisher Scoring iterations: 6
 </pre></div>
@@ -1753,23 +1755,23 @@ glm(formula = Usage ~ MaxTemp + MinTemp, family = gaussian(link = &quot;log&quot
 
 Deviance Residuals: 
     Min       1Q   Median       3Q      Max  
--54.314   -4.297   -0.445    4.674   48.347  
+-51.898   -4.306   -0.382    5.030   48.100  
 
 Coefficients:
              Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)  5.581263   0.099351  56.177  &lt; 2e-16 ***
-MaxTemp     -0.052771   0.007765  -6.796 2.92e-11 ***
-MinTemp     -0.087271   0.006922 -12.608  &lt; 2e-16 ***
+(Intercept)  5.414631   0.099962  54.167  &lt; 2e-16 ***
+MaxTemp     -0.041520   0.007992  -5.195 2.93e-07 ***
+MinTemp     -0.092090   0.007316 -12.587  &lt; 2e-16 ***
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
-(Dispersion parameter for gaussian family taken to be 85.93894)
+(Dispersion parameter for gaussian family taken to be 92.09666)
 
-    Null deviance: 116582  on 529  degrees of freedom
-Residual deviance:  45289  on 527  degrees of freedom
-AIC: 3869.5
+    Null deviance: 118331  on 529  degrees of freedom
+Residual deviance:  48534  on 527  degrees of freedom
+AIC: 3906.2
 
-Number of Fisher Scoring iterations: 7
+Number of Fisher Scoring iterations: 6
 </pre></div>
 </div>
 </div>
@@ -1786,9 +1788,9 @@ Number of Fisher Scoring iterations: 7
 <div class="output text_html"><table>
 <thead><tr><th></th><th scope=col>coef(final_model_glm)</th></tr></thead>
 <tbody>
-	<tr><th scope=row>(Intercept)</th><td> 5.58126295</td></tr>
-	<tr><th scope=row>MaxTemp</th><td>-0.05277115</td></tr>
-	<tr><th scope=row>MinTemp</th><td>-0.08727111</td></tr>
+	<tr><th scope=row>(Intercept)</th><td> 5.41463097</td></tr>
+	<tr><th scope=row>MaxTemp</th><td>-0.04152022</td></tr>
+	<tr><th scope=row>MinTemp</th><td>-0.09209007</td></tr>
 </tbody>
 </table>
 </div></div>
@@ -1809,7 +1811,7 @@ Number of Fisher Scoring iterations: 7
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] &quot;Dummy prediction with min of 10 and max of 20:&quot;
 </pre></div>
 </div>
-<div class="output text_html"><strong>1:</strong> 38.5952351351465</div><div class="output text_html">38.5952351351465</div></div>
+<div class="output text_html"><strong>1:</strong> 38.9908026539508</div><div class="output text_html">38.9908026539508</div></div>
 </div>
 <p>Adding the predictions to the test data:</p>
 <div class="cell docutils container">
@@ -1934,7 +1936,7 @@ Number of Fisher Scoring iterations: 7
 Graph information:
    Observed stochastic nodes: 530
    Unobserved stochastic nodes: 4
-   Total graph size: 3452
+   Total graph size: 3458
 
 Initializing model
 </pre></div>
@@ -1966,18 +1968,18 @@ Sample size per chain = 10000
    plus standard error of the mean:
 
       Mean       SD  Naive SE Time-series SE
-a  5.58559 0.104457 6.031e-04      0.0072610
-b -0.05329 0.007948 4.589e-05      0.0007658
-c -0.08692 0.006830 3.943e-05      0.0003946
-s  9.28622 0.274779 1.586e-03      0.0019717
+a  5.42368 0.107372 6.199e-04      0.0073562
+b -0.04263 0.008776 5.067e-05      0.0009216
+c -0.09124 0.007518 4.341e-05      0.0004607
+s  9.55992 0.244700 1.413e-03      0.0018704
 
 2. Quantiles for each variable:
 
       2.5%      25%      50%      75%    97.5%
-a  5.38982  5.51139  5.58408  5.65594  5.79638
-b -0.06835 -0.05903 -0.05337 -0.04738 -0.03861
-c -0.10004 -0.09162 -0.08702 -0.08227 -0.07341
-s  8.75199  9.09518  9.28204  9.47560  9.83115
+a  5.21873  5.34977  5.42454  5.49497  5.63821
+b -0.06033 -0.04832 -0.04240 -0.03661 -0.02634
+c -0.10548 -0.09641 -0.09151 -0.08617 -0.07628
+s  9.04907  9.39190  9.57360  9.74782  9.96562
 </pre></div>
 </div>
 <img alt="../_images/bayesian-applications_101_1.png" src="../_images/bayesian-applications_101_1.png" />
@@ -2007,7 +2009,7 @@ s  8.75199  9.09518  9.28204  9.47560  9.83115
 </div>
 <div class="section" id="estimating-covid-19-infections-in-nsw-australia">
 <h2>Estimating COVID 19 infections in NSW, Australia<a class="headerlink" href="#estimating-covid-19-infections-in-nsw-australia" title="Permalink to this headline">¶</a></h2>
-<p>{cite} ‘Latent’ discusses a method of forecasting COVID infections using the package <a class="reference external" href="https://epiforecasts.io/EpiNow2/index.html">“epinow2”</a>, {cite} ‘Epinow’. The package makes use of STAN.</p>
+<p><a class="reference external" href="https://actuaries.logicaldoc.cloud/download-ticket?ticketId=4fda7653-5e3d-4514-a79f-ed0070a0f9be">This paper</a> presented at the 2021 Actuaries (Institute) Summit discusses a method of forecasting COVID infections using the package <a class="reference external" href="https://epiforecasts.io/EpiNow2/index.html">“epinow2”</a>. The package makes use of STAN.</p>
 <blockquote>
 <div><p>“[Epinow2] estimates the time-varying reproduction number on cases by date of infection… Imputed infections are then mapped to observed data (for example cases by date of report) via a series of uncertain delay distributions…”</p>
 </div></blockquote>
